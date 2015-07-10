@@ -1,4 +1,7 @@
-﻿@{
+﻿@using RazorView1.Models
+@model IEnumberable<Instructor>
+
+@{
     Layout = null;
 }
 
@@ -11,6 +14,21 @@
 </head>
 <body>
     <div>
+
+        @ViewData["Message"]
+
+        @foreach (var instructor in Model)
+        {
+            <div>
+                <p>Name: @instructor.Name</p>
+                <p>Twitter: @instructor.TwitterHandle</p>
+                <p>HtmlDescription: @instructor.HtmlDescription</p>
+            </div>
+        }
+
+        <br />
+        <hr />
+
         @{
             var name = "Scott";
             name = name.ToLower();

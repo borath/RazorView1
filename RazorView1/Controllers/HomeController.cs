@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using RazorView1.Models;
 
-namespace RazorView1.Controllers
+namespace RazorView.Controllers
 {
     public class HomeController : Controller
     {
@@ -13,8 +14,25 @@ namespace RazorView1.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            ViewData["Message"] = "Hello, Razor!";
+            return View(_instructors);
         }
+
+        private List<Instructor> _instructors = new List<Instructor>
+        {
+            new Instructor
+            {
+                Name = "Scott",
+                TwitterHandle = "@OdeToCode",
+                HtmlDescription ="This is <em>markup</em>!"
+            },
+                        new Instructor
+            {
+                Name = "David",
+                TwitterHandle = "@OdeToCode",
+                HtmlDescription ="This is <em>markup</em> too!"
+            },
+        };
 
     }
 }
