@@ -1,5 +1,5 @@
 ﻿@using RazorView1.Models
-@model IEnumberable<Instructor>
+@model IEnumerable<Instructor>
 
 @{
     Layout = null;
@@ -15,14 +15,14 @@
 <body>
     <div>
 
-        @ViewData["Message"]
+        @ViewBag.Message
 
         @foreach (var instructor in Model)
         {
             <div>
                 <p>Name: @instructor.Name</p>
                 <p>Twitter: @instructor.TwitterHandle</p>
-                <p>HtmlDescription: @instructor.HtmlDescription</p>
+                <p>Description: @Html.Raw(instructor.HtmlDescription)</p>
             </div>
         }
 
